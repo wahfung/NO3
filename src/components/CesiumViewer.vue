@@ -211,7 +211,8 @@ defineExpose({
   height: 100%;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px var(--color-shadow);
+  transition: box-shadow 0.3s ease;
 }
 
 .cesium-container {
@@ -226,15 +227,15 @@ defineExpose({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
   z-index: 100;
 }
 
 .loading-spinner {
   width: 50px;
   height: 50px;
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top-color: #667eea;
+  border: 4px solid var(--color-surface-hover);
+  border-top-color: var(--color-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -247,7 +248,7 @@ defineExpose({
 
 .loading-text {
   margin-top: 20px;
-  color: #a0aec0;
+  color: var(--color-text-secondary);
   font-size: 14px;
 }
 
@@ -257,13 +258,13 @@ defineExpose({
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
   z-index: 100;
 }
 
 .error-content {
   text-align: center;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .error-icon {
@@ -274,13 +275,13 @@ defineExpose({
 }
 
 .error-content p {
-  color: #a0aec0;
+  color: var(--color-text-secondary);
   margin-bottom: 20px;
 }
 
 .retry-btn {
   padding: 10px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -291,6 +292,21 @@ defineExpose({
 
 .retry-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+/* 暗色主题下调整 Cesium 控件样式 */
+:deep(.dark .cesium-viewer-toolbar) {
+  filter: brightness(0.8) saturate(0.9);
+}
+
+:deep(.dark .cesium-button) {
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-border) !important;
+}
+
+:deep(.dark .cesium-button:hover) {
+  background: var(--color-surface-hover) !important;
 }
 </style>
