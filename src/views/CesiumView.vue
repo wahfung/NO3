@@ -125,7 +125,7 @@ const showNotification = (message: string) => {
   padding-top: 64px;
   display: flex;
   flex-direction: column;
-  background: #f1f5f9;
+  background: var(--theme-background);
 }
 
 .status-bar {
@@ -133,8 +133,8 @@ const showNotification = (message: string) => {
   align-items: center;
   gap: 24px;
   padding: 12px 24px;
-  background: #fff;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--theme-surface);
+  border-bottom: 1px solid var(--theme-border);
 }
 
 .status-item {
@@ -145,13 +145,13 @@ const showNotification = (message: string) => {
 
 .status-label {
   font-size: 12px;
-  color: #94a3b8;
+  color: var(--theme-text-secondary);
   font-weight: 500;
 }
 
 .status-value {
   font-size: 14px;
-  color: #1e293b;
+  color: var(--theme-text);
   font-weight: 600;
   font-family: 'SF Mono', 'Monaco', monospace;
 }
@@ -162,7 +162,7 @@ const showNotification = (message: string) => {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  background: #fee2e2;
+  background: rgba(220, 38, 38, 0.1);
   border: none;
   border-radius: 8px;
   color: #dc2626;
@@ -173,7 +173,7 @@ const showNotification = (message: string) => {
 }
 
 .clear-btn:hover {
-  background: #fecaca;
+  background: rgba(220, 38, 38, 0.2);
 }
 
 .clear-btn svg {
@@ -202,8 +202,8 @@ const showNotification = (message: string) => {
   align-items: center;
   gap: 10px;
   padding: 14px 24px;
-  background: #1e293b;
-  color: #fff;
+  background: var(--theme-text);
+  color: var(--theme-surface);
   border-radius: 12px;
   font-size: 14px;
   font-weight: 500;
@@ -214,7 +214,7 @@ const showNotification = (message: string) => {
 .toast svg {
   width: 18px;
   height: 18px;
-  color: #4ade80;
+  color: var(--theme-primary);
 }
 
 .toast-enter-active,

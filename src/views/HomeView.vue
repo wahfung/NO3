@@ -1,43 +1,43 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
 
-const router = useRouter()
+const router = useRouter();
 
 const features = [
   {
-    icon: 'globe',
-    title: '三维地球可视化',
-    description: '基于 Cesium 引擎的高性能三维地球渲染，支持全球地形和影像数据'
+    icon: "globe",
+    title: "三维地球可视化",
+    description: "基于 Cesium 引擎的高性能三维地球渲染，支持全球地形和影像数据",
   },
   {
-    icon: 'layers',
-    title: '多图层支持',
-    description: '支持多种底图切换、地形叠加，满足不同场景需求'
+    icon: "layers",
+    title: "多图层支持",
+    description: "支持多种底图切换、地形叠加，满足不同场景需求",
   },
   {
-    icon: 'marker',
-    title: '空间标注',
-    description: '支持点、线、面等空间实体的创建、编辑与管理'
+    icon: "marker",
+    title: "空间标注",
+    description: "支持点、线、面等空间实体的创建、编辑与管理",
   },
   {
-    icon: 'camera',
-    title: '视角控制',
-    description: '灵活的相机控制，支持飞行定位、视角切换等交互操作'
-  }
-]
+    icon: "camera",
+    title: "视角控制",
+    description: "灵活的相机控制，支持飞行定位、视角切换等交互操作",
+  },
+];
 
 const techStack = [
-  { name: 'Vue 3', color: '#42b883' },
-  { name: 'TypeScript', color: '#3178c6' },
-  { name: 'Pinia', color: '#ffd859' },
-  { name: 'Vue Router', color: '#42b883' },
-  { name: 'Cesium', color: '#6366f1' },
-  { name: 'Vite', color: '#646cff' }
-]
+  { name: "Vue 3", color: "#42b883" },
+  { name: "TypeScript", color: "#3178c6" },
+  { name: "Pinia", color: "#ffd859" },
+  { name: "Vue Router", color: "#42b883" },
+  { name: "Cesium", color: "#6366f1" },
+  { name: "Vite", color: "#646cff" },
+];
 
 const goToCesium = () => {
-  router.push('/cesium')
-}
+  router.push("/cesium");
+};
 </script>
 
 <template>
@@ -58,7 +58,12 @@ const goToCesium = () => {
         </p>
         <button class="cta-btn" @click="goToCesium">
           <span>开始体验</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
@@ -70,23 +75,55 @@ const goToCesium = () => {
     <section class="features-section">
       <h2 class="section-title">核心功能</h2>
       <div class="features-grid">
-        <div v-for="feature in features" :key="feature.title" class="feature-card">
+        <div
+          v-for="feature in features"
+          :key="feature.title"
+          class="feature-card"
+        >
           <div class="feature-icon">
-            <svg v-if="feature.icon === 'globe'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              v-if="feature.icon === 'globe'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <circle cx="12" cy="12" r="10"></circle>
-              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              <path
+                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              ></path>
             </svg>
-            <svg v-else-if="feature.icon === 'layers'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              v-else-if="feature.icon === 'layers'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
               <polyline points="2 17 12 22 22 17"></polyline>
               <polyline points="2 12 12 17 22 12"></polyline>
             </svg>
-            <svg v-else-if="feature.icon === 'marker'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              v-else-if="feature.icon === 'marker'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            <svg v-else-if="feature.icon === 'camera'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <svg
+              v-else-if="feature.icon === 'camera'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+              ></path>
               <circle cx="12" cy="13" r="4"></circle>
             </svg>
           </div>
@@ -133,28 +170,40 @@ const goToCesium = () => {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(
+    135deg,
+    var(--theme-background) 0%,
+    rgba(var(--theme-primary-rgb, 102, 126, 234), 0.1) 100%
+  );
   z-index: 0;
 }
 
 .hero-bg::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   right: -30%;
   width: 80%;
   height: 150%;
-  background: radial-gradient(ellipse, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    rgba(var(--theme-primary-rgb, 102, 126, 234), 0.15) 0%,
+    transparent 70%
+  );
 }
 
 .hero-bg::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -30%;
   left: -20%;
   width: 60%;
   height: 100%;
-  background: radial-gradient(ellipse, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    rgba(var(--theme-primary-rgb, 102, 126, 234), 0.1) 0%,
+    transparent 70%
+  );
 }
 
 .hero-content {
@@ -168,12 +217,12 @@ const goToCesium = () => {
   font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
-  color: #1e293b;
+  color: var(--theme-text);
   margin-bottom: 24px;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -181,7 +230,7 @@ const goToCesium = () => {
 
 .hero-subtitle {
   font-size: 18px;
-  color: #64748b;
+  color: var(--theme-text-secondary);
   line-height: 1.7;
   margin-bottom: 40px;
 }
@@ -191,7 +240,7 @@ const goToCesium = () => {
   align-items: center;
   gap: 10px;
   padding: 16px 32px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-gradient);
   border: none;
   border-radius: 12px;
   color: #fff;
@@ -199,12 +248,12 @@ const goToCesium = () => {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.35);
+  box-shadow: 0 8px 24px rgba(var(--theme-primary-rgb, 102, 126, 234), 0.35);
 }
 
 .cta-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.45);
+  box-shadow: 0 12px 32px rgba(var(--theme-primary-rgb, 102, 126, 234), 0.45);
 }
 
 .cta-btn svg {
@@ -227,7 +276,7 @@ const goToCesium = () => {
 .section-title {
   font-size: 32px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--theme-text);
   text-align: center;
   margin-bottom: 48px;
 }
@@ -240,7 +289,7 @@ const goToCesium = () => {
 
 .feature-card {
   padding: 32px 24px;
-  background: #fff;
+  background: var(--theme-surface);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
@@ -254,7 +303,7 @@ const goToCesium = () => {
 .feature-icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: rgba(var(--theme-primary-rgb, 102, 126, 234), 0.1);
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -265,26 +314,26 @@ const goToCesium = () => {
 .feature-icon svg {
   width: 28px;
   height: 28px;
-  color: #667eea;
+  color: var(--theme-primary);
 }
 
 .feature-title {
   font-size: 18px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--theme-text);
   margin-bottom: 12px;
 }
 
 .feature-desc {
   font-size: 14px;
-  color: #64748b;
+  color: var(--theme-text-secondary);
   line-height: 1.6;
 }
 
 /* Tech Stack Section */
 .tech-section {
   padding: 60px 24px 100px;
-  background: #f8fafc;
+  background: var(--theme-background);
 }
 
 .tech-list {
@@ -298,7 +347,7 @@ const goToCesium = () => {
 
 .tech-tag {
   padding: 10px 20px;
-  background: #fff;
+  background: var(--theme-surface);
   border: 2px solid var(--tag-color);
   border-radius: 30px;
   font-size: 14px;

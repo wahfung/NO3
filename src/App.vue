@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import AppHeader from '@/components/AppHeader.vue'
+import { useThemeStore } from '@/stores'
+
+const themeStore = useThemeStore()
+
+onMounted(() => {
+  themeStore.initTheme()
+})
 </script>
 
 <template>
@@ -12,6 +20,19 @@ import AppHeader from '@/components/AppHeader.vue'
 </template>
 
 <style>
+/* CSS Variables for Theming */
+:root {
+  --theme-primary: #667eea;
+  --theme-primary-light: #764ba2;
+  --theme-primary-dark: #5a67d8;
+  --theme-background: #f8fafc;
+  --theme-surface: #ffffff;
+  --theme-text: #1e293b;
+  --theme-text-secondary: #64748b;
+  --theme-border: rgba(0, 0, 0, 0.06);
+  --theme-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
 /* Global Reset */
 *,
 *::before,
@@ -31,8 +52,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #1e293b;
-  background: #f8fafc;
+  color: var(--theme-text);
+  background: var(--theme-background);
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 /* App Layout */
