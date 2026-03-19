@@ -45,7 +45,7 @@ const goBack = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--theme-background) 0%, rgba(var(--theme-primary-rgb, 102, 126, 234), 0.1) 100%);
 }
 
 .not-found-content {
@@ -56,7 +56,7 @@ const goBack = () => {
 .error-code {
   font-size: 120px;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -67,13 +67,13 @@ const goBack = () => {
 .error-title {
   font-size: 28px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--theme-text);
   margin-bottom: 12px;
 }
 
 .error-desc {
   font-size: 16px;
-  color: #64748b;
+  color: var(--theme-text-secondary);
   margin-bottom: 32px;
 }
 
@@ -102,25 +102,25 @@ const goBack = () => {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-gradient);
   color: #fff;
-  box-shadow: 0 4px 14px rgba(102, 126, 234, 0.35);
+  box-shadow: 0 4px 14px rgba(var(--theme-primary-rgb, 102, 126, 234), 0.35);
 }
 
 .btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.45);
+  box-shadow: 0 6px 20px rgba(var(--theme-primary-rgb, 102, 126, 234), 0.45);
 }
 
 .btn.secondary {
-  background: #fff;
-  color: #64748b;
-  border: 1px solid #e2e8f0;
+  background: var(--theme-surface);
+  color: var(--theme-text-secondary);
+  border: 1px solid var(--theme-border);
 }
 
 .btn.secondary:hover {
-  background: #f8fafc;
-  color: #334155;
+  background: var(--theme-background);
+  color: var(--theme-text);
 }
 
 @media (max-width: 480px) {

@@ -102,7 +102,7 @@ const dependencies = [
 .about-view {
   min-height: calc(100vh - 64px);
   padding: 88px 24px 48px;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--theme-background) 0%, rgba(var(--theme-primary-rgb, 102, 126, 234), 0.1) 100%);
 }
 
 .about-container {
@@ -120,12 +120,12 @@ const dependencies = [
   width: 80px;
   height: 80px;
   margin: 0 auto 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-gradient);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 24px rgba(var(--theme-primary-rgb, 102, 126, 234), 0.3);
 }
 
 .project-icon svg {
@@ -137,14 +137,14 @@ const dependencies = [
 .project-name {
   font-size: 32px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--theme-text);
   margin-bottom: 12px;
 }
 
 .version-badge {
   display: inline-block;
   padding: 6px 14px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-gradient);
   color: #fff;
   font-size: 13px;
   font-weight: 600;
@@ -154,7 +154,7 @@ const dependencies = [
 
 .project-desc {
   font-size: 16px;
-  color: #64748b;
+  color: var(--theme-text-secondary);
   max-width: 500px;
   margin: 0 auto;
 }
@@ -166,14 +166,14 @@ const dependencies = [
   gap: 10px;
   font-size: 20px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--theme-text);
   margin-bottom: 24px;
 }
 
 .section-title svg {
   width: 24px;
   height: 24px;
-  color: #667eea;
+  color: var(--theme-primary);
 }
 
 /* Dependencies */
@@ -189,7 +189,7 @@ const dependencies = [
 
 .dep-card {
   padding: 20px;
-  background: #fff;
+  background: var(--theme-surface);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: all 0.2s ease;
@@ -210,21 +210,21 @@ const dependencies = [
 .dep-name {
   font-size: 16px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--theme-text);
 }
 
 .dep-version {
   font-size: 12px;
   padding: 4px 10px;
-  background: #f1f5f9;
-  color: #64748b;
+  background: rgba(var(--theme-primary-rgb, 102, 126, 234), 0.1);
+  color: var(--theme-text-secondary);
   border-radius: 12px;
   font-family: 'SF Mono', 'Monaco', monospace;
 }
 
 .dep-desc {
   font-size: 13px;
-  color: #64748b;
+  color: var(--theme-text-secondary);
   line-height: 1.5;
 }
 
@@ -236,7 +236,7 @@ const dependencies = [
 .feature-list {
   list-style: none;
   padding: 0;
-  background: #fff;
+  background: var(--theme-surface);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   overflow: hidden;
@@ -247,9 +247,9 @@ const dependencies = [
   align-items: center;
   gap: 14px;
   padding: 16px 20px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--theme-border);
   font-size: 14px;
-  color: #334155;
+  color: var(--theme-text);
 }
 
 .feature-list li:last-child {
@@ -259,7 +259,7 @@ const dependencies = [
 .check-icon {
   width: 22px;
   height: 22px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-gradient);
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -273,12 +273,12 @@ const dependencies = [
 .about-footer {
   text-align: center;
   padding-top: 32px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--theme-border);
 }
 
 .about-footer p {
   font-size: 13px;
-  color: #94a3b8;
+  color: var(--theme-text-secondary);
 }
 
 @media (max-width: 768px) {
