@@ -1,45 +1,45 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useThemeStore, type ThemeName } from '@/stores/theme'
+import { computed, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useThemeStore, type ThemeName } from "@/stores/theme";
 
-const route = useRoute()
-const router = useRouter()
-const themeStore = useThemeStore()
+const route = useRoute();
+const router = useRouter();
+const themeStore = useThemeStore();
 
 const navItems = [
-  { path: '/', name: '首页', icon: 'home' },
-  { path: '/cesium', name: '三维地图', icon: 'globe' },
-  { path: '/about', name: '关于', icon: 'info' }
-]
+  { path: "/", name: "首页", icon: "home" },
+  { path: "/cesium", name: "三维地图", icon: "globe" },
+  { path: "/about", name: "关于", icon: "info" },
+];
 
-const isActive = (path: string) => route.path === path
+const isActive = (path: string) => route.path === path;
 
 const navigateTo = (path: string) => {
-  router.push(path)
-}
+  router.push(path);
+};
 
 const currentPageTitle = computed(() => {
-  const item = navItems.find((n) => n.path === route.path)
-  return item?.name || 'Cesium Demo'
-})
+  const item = navItems.find((n) => n.path === route.path);
+  return item?.name || "Cesium Demo";
+});
 
-const showThemeMenu = ref(false)
+const showThemeMenu = ref(false);
 
 const toggleThemeMenu = () => {
-  showThemeMenu.value = !showThemeMenu.value
-}
+  showThemeMenu.value = !showThemeMenu.value;
+};
 
 const selectTheme = (themeName: ThemeName) => {
-  themeStore.setTheme(themeName)
-  showThemeMenu.value = false
-}
+  themeStore.setTheme(themeName);
+  showThemeMenu.value = false;
+};
 
-const themeList = computed(() => Object.values(themeStore.themes))
+const themeList = computed(() => Object.values(themeStore.themes));
 
 const closeThemeMenu = () => {
-  showThemeMenu.value = false
-}
+  showThemeMenu.value = false;
+};
 </script>
 
 <template>
@@ -47,9 +47,16 @@ const closeThemeMenu = () => {
     <div class="header-content">
       <div class="logo-section">
         <div class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            <path
+              d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            ></path>
           </svg>
         </div>
         <h1 class="title">Cesium Vue3 Demo</h1>
@@ -64,15 +71,35 @@ const closeThemeMenu = () => {
           @click="navigateTo(item.path)"
         >
           <span class="nav-icon">
-            <svg v-if="item.icon === 'home'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              v-if="item.icon === 'home'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
               <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
-            <svg v-else-if="item.icon === 'globe'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              v-else-if="item.icon === 'globe'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <circle cx="12" cy="12" r="10"></circle>
-              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              <path
+                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              ></path>
             </svg>
-            <svg v-else-if="item.icon === 'info'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              v-else-if="item.icon === 'info'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="16" x2="12" y2="12"></line>
               <line x1="12" y1="8" x2="12.01" y2="8"></line>
@@ -80,12 +107,19 @@ const closeThemeMenu = () => {
           </span>
           <span class="nav-text">{{ item.name }}</span>
         </button>
-      </nav>
 
-      <div class="header-actions">
         <div class="theme-selector">
-          <button class="theme-btn" @click="toggleThemeMenu" @blur="closeThemeMenu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <button
+            class="theme-btn"
+            @click="toggleThemeMenu"
+            @blur="closeThemeMenu"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <circle cx="12" cy="12" r="5"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
               <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -96,7 +130,7 @@ const closeThemeMenu = () => {
               <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
               <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
             </svg>
-            <span class="theme-btn-text">主题</span>
+            <span class="nav-text">主题</span>
           </button>
           <Transition name="menu">
             <div v-if="showThemeMenu" class="theme-menu">
@@ -108,16 +142,28 @@ const closeThemeMenu = () => {
                 :class="{ active: themeStore.currentTheme === theme.name }"
                 @click="selectTheme(theme.name)"
               >
-                <span class="theme-color" :style="{ background: `linear-gradient(135deg, ${theme.primary} 0%, ${theme.secondary} 100%)` }"></span>
+                <span
+                  class="theme-color"
+                  :style="{
+                    background: `linear-gradient(135deg, ${theme.primary} 0%, ${theme.secondary} 100%)`,
+                  }"
+                ></span>
                 <span class="theme-name">{{ theme.label }}</span>
-                <svg v-if="themeStore.currentTheme === theme.name" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg
+                  v-if="themeStore.currentTheme === theme.name"
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </button>
             </div>
           </Transition>
         </div>
-      </div>
+      </nav>
 
       <div class="mobile-title">{{ currentPageTitle }}</div>
     </div>
@@ -157,7 +203,11 @@ const closeThemeMenu = () => {
 .logo {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -174,7 +224,11 @@ const closeThemeMenu = () => {
 .title {
   font-size: 18px;
   font-weight: 600;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -206,7 +260,11 @@ const closeThemeMenu = () => {
 }
 
 .nav-btn.active {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
   color: #fff;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
@@ -224,12 +282,6 @@ const closeThemeMenu = () => {
   height: 100%;
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .theme-selector {
   position: relative;
 }
@@ -238,11 +290,11 @@ const closeThemeMenu = () => {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
   border-radius: 8px;
-  color: var(--color-text);
+  color: var(--color-text-secondary);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -250,17 +302,13 @@ const closeThemeMenu = () => {
 }
 
 .theme-btn:hover {
-  border-color: var(--color-primary);
+  background: rgba(102, 126, 234, 0.08);
   color: var(--color-primary);
 }
 
 .theme-btn svg {
   width: 18px;
   height: 18px;
-}
-
-.theme-btn-text {
-  display: none;
 }
 
 .theme-menu {
@@ -354,12 +402,9 @@ const closeThemeMenu = () => {
     display: none;
   }
 
-  .nav-btn {
+  .nav-btn,
+  .theme-btn {
     padding: 10px;
-  }
-
-  .theme-btn-text {
-    display: none;
   }
 
   .mobile-title {
