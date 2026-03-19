@@ -117,6 +117,7 @@ const goToCesium = () => {
 .home-view {
   min-height: calc(100vh - 64px);
   padding-top: 64px;
+  transition: background-color 0.3s ease;
 }
 
 /* Hero Section */
@@ -133,7 +134,7 @@ const goToCesium = () => {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
   z-index: 0;
 }
 
@@ -144,7 +145,7 @@ const goToCesium = () => {
   right: -30%;
   width: 80%;
   height: 150%;
-  background: radial-gradient(ellipse, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+  background: radial-gradient(ellipse, var(--color-shadow) 0%, transparent 70%);
 }
 
 .hero-bg::after {
@@ -154,7 +155,7 @@ const goToCesium = () => {
   left: -20%;
   width: 60%;
   height: 100%;
-  background: radial-gradient(ellipse, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse, var(--color-shadow) 0%, transparent 70%);
 }
 
 .hero-content {
@@ -168,12 +169,12 @@ const goToCesium = () => {
   font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
-  color: #1e293b;
+  color: var(--color-text-primary);
   margin-bottom: 24px;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -181,7 +182,7 @@ const goToCesium = () => {
 
 .hero-subtitle {
   font-size: 18px;
-  color: #64748b;
+  color: var(--color-text-secondary);
   line-height: 1.7;
   margin-bottom: 40px;
 }
@@ -191,7 +192,7 @@ const goToCesium = () => {
   align-items: center;
   gap: 10px;
   padding: 16px 32px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   border: none;
   border-radius: 12px;
   color: #fff;
@@ -199,12 +200,12 @@ const goToCesium = () => {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.35);
+  box-shadow: 0 8px 24px var(--color-shadow);
 }
 
 .cta-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.45);
+  box-shadow: 0 12px 32px var(--color-shadow);
 }
 
 .cta-btn svg {
@@ -227,7 +228,7 @@ const goToCesium = () => {
 .section-title {
   font-size: 32px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-text-primary);
   text-align: center;
   margin-bottom: 48px;
 }
@@ -240,21 +241,21 @@ const goToCesium = () => {
 
 .feature-card {
   padding: 32px 24px;
-  background: #fff;
+  background: var(--color-surface);
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px var(--color-shadow);
   transition: all 0.3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px var(--color-shadow);
 }
 
 .feature-icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: linear-gradient(135deg, var(--color-overlay-hover) 0%, var(--color-overlay-hover) 100%);
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -265,26 +266,26 @@ const goToCesium = () => {
 .feature-icon svg {
   width: 28px;
   height: 28px;
-  color: #667eea;
+  color: var(--color-primary);
 }
 
 .feature-title {
   font-size: 18px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-text-primary);
   margin-bottom: 12px;
 }
 
 .feature-desc {
   font-size: 14px;
-  color: #64748b;
+  color: var(--color-text-secondary);
   line-height: 1.6;
 }
 
 /* Tech Stack Section */
 .tech-section {
   padding: 60px 24px 100px;
-  background: #f8fafc;
+  background: var(--color-background);
 }
 
 .tech-list {
@@ -298,7 +299,7 @@ const goToCesium = () => {
 
 .tech-tag {
   padding: 10px 20px;
-  background: #fff;
+  background: var(--color-surface);
   border: 2px solid var(--tag-color);
   border-radius: 30px;
   font-size: 14px;

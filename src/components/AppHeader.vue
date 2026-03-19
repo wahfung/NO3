@@ -1,26 +1,27 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
 
-const route = useRoute()
-const router = useRouter()
+const route = useRoute();
+const router = useRouter();
 
 const navItems = [
-  { path: '/', name: '首页', icon: 'home' },
-  { path: '/cesium', name: '三维地图', icon: 'globe' },
-  { path: '/about', name: '关于', icon: 'info' }
-]
+  { path: "/", name: "首页", icon: "home" },
+  { path: "/cesium", name: "三维地图", icon: "globe" },
+  { path: "/about", name: "关于", icon: "info" },
+];
 
-const isActive = (path: string) => route.path === path
+const isActive = (path: string) => route.path === path;
 
 const navigateTo = (path: string) => {
-  router.push(path)
-}
+  router.push(path);
+};
 
 const currentPageTitle = computed(() => {
-  const item = navItems.find((n) => n.path === route.path)
-  return item?.name || 'Cesium Demo'
-})
+  const item = navItems.find((n) => n.path === route.path);
+  return item?.name || "Cesium Demo";
+});
 </script>
 
 <template>
@@ -28,9 +29,16 @@ const currentPageTitle = computed(() => {
     <div class="header-content">
       <div class="logo-section">
         <div class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            <path
+              d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            ></path>
           </svg>
         </div>
         <h1 class="title">Cesium Vue3 Demo</h1>
@@ -45,15 +53,35 @@ const currentPageTitle = computed(() => {
           @click="navigateTo(item.path)"
         >
           <span class="nav-icon">
-            <svg v-if="item.icon === 'home'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              v-if="item.icon === 'home'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
               <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
-            <svg v-else-if="item.icon === 'globe'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              v-else-if="item.icon === 'globe'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <circle cx="12" cy="12" r="10"></circle>
-              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              <path
+                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              ></path>
             </svg>
-            <svg v-else-if="item.icon === 'info'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              v-else-if="item.icon === 'info'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="16" x2="12" y2="12"></line>
               <line x1="12" y1="8" x2="12.01" y2="8"></line>
@@ -61,6 +89,9 @@ const currentPageTitle = computed(() => {
           </span>
           <span class="nav-text">{{ item.name }}</span>
         </button>
+
+        <!-- 主题切换按钮 -->
+        <ThemeSwitcher />
       </nav>
 
       <div class="mobile-title">{{ currentPageTitle }}</div>
@@ -75,10 +106,13 @@ const currentPageTitle = computed(() => {
   left: 0;
   right: 0;
   height: 64px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-overlay);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--color-border);
   z-index: 1000;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .header-content {
@@ -100,7 +134,11 @@ const currentPageTitle = computed(() => {
 .logo {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -116,7 +154,11 @@ const currentPageTitle = computed(() => {
 .title {
   font-size: 18px;
   font-weight: 600;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -125,6 +167,7 @@ const currentPageTitle = computed(() => {
 .nav-section {
   display: flex;
   gap: 8px;
+  align-items: center;
 }
 
 .nav-btn {
@@ -135,7 +178,7 @@ const currentPageTitle = computed(() => {
   background: transparent;
   border: none;
   border-radius: 8px;
-  color: #64748b;
+  color: var(--color-text-secondary);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -143,14 +186,18 @@ const currentPageTitle = computed(() => {
 }
 
 .nav-btn:hover {
-  background: rgba(102, 126, 234, 0.08);
-  color: #667eea;
+  background: var(--color-overlay-hover);
+  color: var(--color-primary);
 }
 
 .nav-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
   color: #fff;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .nav-icon {
@@ -170,7 +217,7 @@ const currentPageTitle = computed(() => {
   display: none;
   font-size: 16px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-text-primary);
 }
 
 @media (max-width: 768px) {
