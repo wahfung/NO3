@@ -42,7 +42,6 @@ const goToCesium = () => {
 
 <template>
   <div class="home-view">
-    <!-- Hero Section -->
     <section class="hero-section">
       <div class="hero-bg"></div>
       <div class="hero-content">
@@ -66,7 +65,6 @@ const goToCesium = () => {
       </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features-section">
       <h2 class="section-title">核心功能</h2>
       <div class="features-grid">
@@ -96,7 +94,6 @@ const goToCesium = () => {
       </div>
     </section>
 
-    <!-- Tech Stack Section -->
     <section class="tech-section">
       <h2 class="section-title">技术栈</h2>
       <div class="tech-list">
@@ -119,7 +116,6 @@ const goToCesium = () => {
   padding-top: 64px;
 }
 
-/* Hero Section */
 .hero-section {
   position: relative;
   min-height: 70vh;
@@ -133,8 +129,9 @@ const goToCesium = () => {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-secondary) 100%);
   z-index: 0;
+  transition: background 0.3s ease;
 }
 
 .hero-bg::before {
@@ -168,12 +165,13 @@ const goToCesium = () => {
   font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
-  color: #1e293b;
+  color: var(--color-text);
   margin-bottom: 24px;
+  transition: color 0.3s ease;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -181,9 +179,10 @@ const goToCesium = () => {
 
 .hero-subtitle {
   font-size: 18px;
-  color: #64748b;
+  color: var(--color-text-secondary);
   line-height: 1.7;
   margin-bottom: 40px;
+  transition: color 0.3s ease;
 }
 
 .cta-btn {
@@ -191,7 +190,7 @@ const goToCesium = () => {
   align-items: center;
   gap: 10px;
   padding: 16px 32px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   border: none;
   border-radius: 12px;
   color: #fff;
@@ -217,7 +216,6 @@ const goToCesium = () => {
   transform: translateX(4px);
 }
 
-/* Features Section */
 .features-section {
   padding: 80px 24px;
   max-width: 1200px;
@@ -227,9 +225,10 @@ const goToCesium = () => {
 .section-title {
   font-size: 32px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-text);
   text-align: center;
   margin-bottom: 48px;
+  transition: color 0.3s ease;
 }
 
 .features-grid {
@@ -240,9 +239,9 @@ const goToCesium = () => {
 
 .feature-card {
   padding: 32px 24px;
-  background: #fff;
+  background: var(--color-surface);
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px var(--color-shadow);
   transition: all 0.3s ease;
 }
 
@@ -265,26 +264,29 @@ const goToCesium = () => {
 .feature-icon svg {
   width: 28px;
   height: 28px;
-  color: #667eea;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
 }
 
 .feature-title {
   font-size: 18px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-text);
   margin-bottom: 12px;
+  transition: color 0.3s ease;
 }
 
 .feature-desc {
   font-size: 14px;
-  color: #64748b;
+  color: var(--color-text-secondary);
   line-height: 1.6;
+  transition: color 0.3s ease;
 }
 
-/* Tech Stack Section */
 .tech-section {
   padding: 60px 24px 100px;
-  background: #f8fafc;
+  background: var(--color-background);
+  transition: background 0.3s ease;
 }
 
 .tech-list {
@@ -298,7 +300,7 @@ const goToCesium = () => {
 
 .tech-tag {
   padding: 10px 20px;
-  background: #fff;
+  background: var(--color-surface);
   border: 2px solid var(--tag-color);
   border-radius: 30px;
   font-size: 14px;
