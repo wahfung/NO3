@@ -119,7 +119,7 @@ const togglePanel = () => {
   height: 24px;
   background: transparent;
   border: none;
-  color: #64748b;
+  color: var(--color-text-secondary);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -129,7 +129,7 @@ const togglePanel = () => {
 }
 
 .toggle-btn:hover {
-  color: #667eea;
+  color: var(--color-primary);
 }
 
 .toggle-btn svg {
@@ -148,14 +148,16 @@ const togglePanel = () => {
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-text);
   margin-bottom: 16px;
+  transition: color 0.3s ease;
 }
 
 .panel-title svg {
   width: 18px;
   height: 18px;
-  color: #667eea;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
 }
 
 .city-grid {
@@ -167,7 +169,7 @@ const togglePanel = () => {
 .city-card {
   position: relative;
   padding: 12px 10px;
-  background: #f8fafc;
+  background: var(--color-background);
   border: 1px solid transparent;
   border-radius: 10px;
   cursor: pointer;
@@ -181,7 +183,7 @@ const togglePanel = () => {
 }
 
 .city-card.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   border-color: transparent;
 }
 
@@ -201,7 +203,8 @@ const togglePanel = () => {
 .city-name {
   font-size: 13px;
   font-weight: 500;
-  color: #334155;
+  color: var(--color-text);
+  transition: color 0.3s ease;
 }
 
 .marker-btn {
@@ -212,7 +215,7 @@ const togglePanel = () => {
   height: 20px;
   background: transparent;
   border: none;
-  color: #94a3b8;
+  color: var(--color-text-secondary);
   cursor: pointer;
   border-radius: 4px;
   display: flex;
@@ -227,7 +230,7 @@ const togglePanel = () => {
 }
 
 .marker-btn:hover {
-  color: #667eea;
+  color: var(--color-primary);
   background: rgba(102, 126, 234, 0.1);
 }
 
@@ -239,12 +242,14 @@ const togglePanel = () => {
 .panel-footer {
   margin-top: 16px;
   padding-top: 12px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--color-border);
+  transition: border-color 0.3s ease;
 }
 
 .hint {
   font-size: 11px;
-  color: #94a3b8;
+  color: var(--color-text-secondary);
   margin: 4px 0;
+  transition: color 0.3s ease;
 }
 </style>

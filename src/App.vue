@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import AppHeader from '@/components/AppHeader.vue'
+import { onMounted } from "vue";
+import AppHeader from "@/components/AppHeader.vue";
+import { useThemeStore } from "@/stores/theme";
+
+const themeStore = useThemeStore();
+
+onMounted(() => {
+  themeStore.initTheme();
+});
 </script>
 
 <template>
@@ -12,7 +20,21 @@ import AppHeader from '@/components/AppHeader.vue'
 </template>
 
 <style>
-/* Global Reset */
+:root {
+  --color-primary: #667eea;
+  --color-primary-light: #8b9cf5;
+  --color-primary-dark: #4c63d2;
+  --color-secondary: #764ba2;
+  --color-accent: #f093fb;
+  --color-background: #f8fafc;
+  --color-background-secondary: #e2e8f0;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-border: #e2e8f0;
+  --color-shadow: rgba(0, 0, 0, 0.06);
+}
+
 *,
 *::before,
 *::after {
@@ -28,14 +50,18 @@ body,
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #1e293b;
-  background: #f8fafc;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-/* App Layout */
 .app {
   min-height: 100vh;
   display: flex;
@@ -48,7 +74,6 @@ body {
   flex-direction: column;
 }
 
-/* Cesium Widget Overrides */
 .cesium-viewer-bottom {
   display: none !important;
 }

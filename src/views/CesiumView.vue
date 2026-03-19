@@ -66,7 +66,6 @@ const showNotification = (message: string) => {
 
 <template>
   <div class="cesium-view">
-    <!-- Status Bar -->
     <div class="status-bar">
       <div class="status-item">
         <span class="status-label">标记数量</span>
@@ -93,7 +92,6 @@ const showNotification = (message: string) => {
       </button>
     </div>
 
-    <!-- Map Container -->
     <div class="map-container">
       <CesiumViewer
         ref="cesiumViewerRef"
@@ -106,7 +104,6 @@ const showNotification = (message: string) => {
       <LocationPanel @fly-to="handleFlyTo" @add-marker="handleAddMarker" />
     </div>
 
-    <!-- Toast Notification -->
     <Transition name="toast">
       <div v-if="showToast" class="toast">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -125,7 +122,8 @@ const showNotification = (message: string) => {
   padding-top: 64px;
   display: flex;
   flex-direction: column;
-  background: #f1f5f9;
+  background: var(--color-background-secondary);
+  transition: background 0.3s ease;
 }
 
 .status-bar {
@@ -133,8 +131,9 @@ const showNotification = (message: string) => {
   align-items: center;
   gap: 24px;
   padding: 12px 24px;
-  background: #fff;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.3s ease;
 }
 
 .status-item {
@@ -145,15 +144,17 @@ const showNotification = (message: string) => {
 
 .status-label {
   font-size: 12px;
-  color: #94a3b8;
+  color: var(--color-text-secondary);
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .status-value {
   font-size: 14px;
-  color: #1e293b;
+  color: var(--color-text);
   font-weight: 600;
   font-family: 'SF Mono', 'Monaco', monospace;
+  transition: color 0.3s ease;
 }
 
 .clear-btn {
@@ -192,7 +193,6 @@ const showNotification = (message: string) => {
   height: 100%;
 }
 
-/* Toast */
 .toast {
   position: fixed;
   bottom: 32px;
@@ -202,13 +202,14 @@ const showNotification = (message: string) => {
   align-items: center;
   gap: 10px;
   padding: 14px 24px;
-  background: #1e293b;
-  color: #fff;
+  background: var(--color-text);
+  color: var(--color-surface);
   border-radius: 12px;
   font-size: 14px;
   font-weight: 500;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .toast svg {
